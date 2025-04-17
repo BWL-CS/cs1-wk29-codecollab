@@ -1,7 +1,23 @@
-// SECTION #1
-// Compare this code to the section below. Similarities? Differences? BE SPECIFIC!!!
-const highlighterButton = document.querySelector('#highlighterButton');
-highlighterButton.onclick = highlightVocab;
+// SECTION 1 - Just like our project
+
+const styleButton = document.querySelector('#styleButton');
+styleButton.addEventListener('click', changeStyle);
+
+function changeStyle() {
+  const firstParagraph = document.querySelector('.description');
+  firstParagraph.style.color = '#D63384';
+  firstParagraph.style.fontSize = '16px';
+  firstParagraph.style.fontStyle = 'italic';
+  firstParagraph.style.border = '2px solid grey';
+  firstParagraph.style.padding = '5px';
+}
+
+
+// SECTION 2 - Looping through multiple elements
+
+const highlightButton = document.querySelector('#highlightButton');
+highlightButton.addEventListener('click', highlightVocab);
+
 function highlightVocab() {
   const allVocabElements = document.querySelectorAll('.vocab');
   for (const element of allVocabElements) {
@@ -9,25 +25,27 @@ function highlightVocab() {
   }
 }
 
-// SECTION #2
-// Compare this code to the section above. Similarities? Differences? BE SPECIFIC!!!
-const styleButton = document.querySelector('#styleButton');
-styleButton.onclick = () => {
-  const firstParagraph = document.querySelector('.description');
-  firstParagraph.style.color = 'grey';
-  firstParagraph.style.fontSize = '20px';
-};
 
-// SECTION #3
+// SECTION 3 - Challenge! 
+
 const clearButton = document.querySelector('#clearButton');
-clearButton.onclick = function() {
+clearButton.addEventListener('click', clearStyle);
+
+function clearStyle() {
+
   const allVocabElements = document.querySelectorAll('.vocab');
+
   for (const element of allVocabElements) {
     if (element.classList.contains('highlight')) {
       element.classList.remove('highlight'); 
     }
   }
+
   const firstParagraph = document.querySelector('.description');
+
   firstParagraph.style.color = 'inherit';
   firstParagraph.style.fontSize = 'inherit';
-};
+  firstParagraph.style.fontStyle = 'inherit';
+  firstParagraph.style.border = 'inherit';
+  firstParagraph.style.padding = 'inherit';
+}
